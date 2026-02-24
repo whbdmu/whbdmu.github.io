@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wang huibing profile</title>
+    <style>
+        /* 重置页面默认边距，让PDF占满整个页面 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* PDF容器占满整个视口（屏幕） */
+        .pdf-container {
+            width: 100vw;  /* 视口宽度100% */
+            height: 100vh; /* 视口高度100% */
+            border: none;  /* 去掉iframe默认边框 */
+        }
+        /* 降级提示样式（仅当PDF无法嵌入时显示） */
+        .fallback-tip {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 16px;
+            color: #333;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- 核心：嵌入PDF，作为页面唯一内容 -->
+    <iframe 
+        class="pdf-container" 
+        src="Huibing Wang.pdf"  <!-- 替换为你的PDF实际路径 -->
+        title="PDF独立页面"
+    >
+        <!-- 降级提示：浏览器不支持时显示下载链接 -->
+        <div class="fallback-tip">
+            你的浏览器不支持直接查看PDF<br>
+            <a href="Huibing Wang.pdf" download>点击下载PDF文件</a>
+        </div>
+    </iframe>
+</body>
+</html>
