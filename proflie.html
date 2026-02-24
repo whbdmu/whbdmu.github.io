@@ -2,44 +2,77 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wang huibing profile</title>
+    <!-- 关键：移动端视口适配，禁止缩放，适配设备宽度 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>profile</title>
     <style>
-        /* 重置页面默认边距，让PDF占满整个页面 */
+        /* 重置所有默认样式，消除跨设备差异 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        /* PDF容器占满整个视口（屏幕） */
-        .pdf-container {
-            width: 100vw;  /* 视口宽度100% */
-            height: 100vh; /* 视口高度100% */
-            border: none;  /* 去掉iframe默认边框 */
+        body, html {
+            width: 100%;
+            height: 100%;
+            /* 移动端隐藏滚动条，避免双滚动层 */
+            overflow: hidden;
+            /* 适配移动端深色模式（可选） */
+            background-color: #fff;
         }
-        /* 降级提示样式（仅当PDF无法嵌入时显示） */
+        /* PDF容器：适配所有设备 */
+        .pdf-container {
+            /* 宽度自适应设备，最大宽度限制避免电脑端过宽 */
+            width: 100%;
+            max-width: 1200px;
+            /* 高度自适应，优先占满可用空间，最小高度保证移动端显示完整 */
+            height: 100vh;
+            min-height: 500px;
+            /* 居中显示，适配平板/电脑端 */
+            margin: 0 auto;
+            border: none;
+            /* 解决移动端iframe触控卡顿问题 */
+            touch-action: pan-y;
+        }
+        /* 降级提示：适配移动端样式 */
         .fallback-tip {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            width: 80%;
             font-size: 16px;
             color: #333;
             text-align: center;
+            line-height: 1.5;
+        }
+        .fallback-tip a {
+            color: #007bff;
+            text-decoration: none;
+            /* 移动端加大点击区域 */
+            display: inline-block;
+            padding: 8px 16px;
+            margin-top: 10px;
+            background: #f5f5f5;
+            border-radius: 4px;
         }
     </style>
 </head>
 <body>
-    <!-- 核心：嵌入PDF，作为页面唯一内容 -->
+    <!-- 核心：嵌入PDF，适配所有设备 -->
     <iframe 
         class="pdf-container" 
-        src="Huibing Wang.pdf"  <!-- 替换为你的PDF实际路径 -->
-        title="PDF独立页面"
+        src="Huibing Wang.pdf" 
+        title="profile"
+        sandbox="allow-scripts allow-same-origin"
+        allowfullscreen="true"
     >
-        <!-- 降级提示：浏览器不支持时显示下载链接 -->
         <div class="fallback-tip">
-            你的浏览器不支持直接查看PDF<br>
-            <a href="Huibing Wang.pdf" download>点击下载PDF文件</a>
+            无法直接查看PDF<br>
+            点击下方链接下载或在新窗口打开
+            <br>
+            <a href="Huibing Wang.pdf" download>下载PDF</a>
+            <a href="Huibing Wang.pdf" target="_blank" style="margin-left: 10px;">新窗口打开</a>
         </div>
     </iframe>
 </body>
