@@ -1,427 +1,382 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>王辉兵 · 教授/博导 · 大连海事大学</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王辉兵 · 教授/博导 · 个人主页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      background: #f2f4f8;
-      font-family: 'Times New Roman', '宋体', 'SimSun', 'Palatino Linotype', 'Book Antiqua', serif;
-      display: flex;
-      justify-content: center;
-      padding: 2rem 1rem;
-    }
+        body {
+            background: #f2f5f9;
+            font-family: 'Times New Roman', '宋体', 'SimSun', 'Georgia', serif;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
 
-    .page {
-      max-width: 1200px;
-      width: 100%;
-      background: white;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-      padding: 2rem 2.5rem;
-      border-radius: 8px;
-    }
+        .page {
+            max-width: 1100px;
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            padding: 48px 56px;
+            border-radius: 4px;
+            line-height: 1.5;
+            color: #1e1e1e;
+        }
 
-    /* 头部：照片 + 姓名职称 */
-    .header-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.8rem;
-      align-items: flex-start;
-      border-bottom: 2px solid #1e3c5c;
-      padding-bottom: 1.2rem;
-      margin-bottom: 1.6rem;
-    }
+        /* 保持与word一致的字体风格 */
+        h1, h2, h3, h4, .title, .section-title {
+            font-family: 'Times New Roman', '黑体', 'SimHei', sans-serif;
+            font-weight: 600;
+        }
 
-    .profile-img {
-      flex-shrink: 0;
-      width: 2.1756944444444444in;  /* 保持原文档尺寸 */
-      height: 3.0458333333333334in;
-      background: #eaeef3;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
-      color: #3a4b5e;
-      border: 1px solid #c0cbd8;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-      overflow: hidden;
-    }
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: flex-start;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 20px;
+            margin-bottom: 24px;
+        }
 
-    .profile-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+        .profile-img {
+            flex: 0 0 130px;
+            text-align: center;
+        }
 
-    .profile-img-placeholder {
-      width: 100%;
-      height: 100%;
-      background: #d9e2ec;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #1d3b5c;
-      font-weight: 500;
-      font-size: 1rem;
-      text-align: center;
-      padding: 0.5rem;
-      background-image: linear-gradient(145deg, #d0dce8 0%, #eaf0f6 100%);
-    }
+        .profile-img img {
+            width: 130px;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid #d0d7e2;
+            background: #f0f3f8;
+            display: block;
+        }
 
-    .title-group {
-      flex: 1;
-      min-width: 280px;
-    }
+        .profile-img .placeholder {
+            width: 130px;
+            height: 182px;
+            background: #e6ecf3;
+            border: 1px solid #bcc3ce;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4a5a6e;
+            font-size: 14px;
+            text-align: center;
+            padding: 8px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="%238a9bb0" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center 30px;
+            background-size: 48px;
+        }
 
-    .title-group h1 {
-      font-size: 2.6rem;
-      font-weight: 700;
-      color: #0a1e2f;
-      letter-spacing: 0.5px;
-      margin-bottom: 0.2rem;
-      font-family: 'Times New Roman', '宋体', serif;
-    }
+        .profile-img .placeholder span {
+            margin-top: 60px;
+            display: block;
+        }
 
-    .title-group .subhead {
-      font-size: 1.3rem;
-      font-weight: 400;
-      color: #1f3b57;
-      margin-bottom: 0.7rem;
-      border-bottom: 1px dashed #b3c4d6;
-      padding-bottom: 0.4rem;
-    }
+        .name-title {
+            flex: 1;
+            min-width: 240px;
+        }
 
-    .title-group .affiliation {
-      font-size: 1.05rem;
-      line-height: 1.6;
-      color: #1e2f40;
-      margin: 0.2rem 0;
-    }
+        .name-title h1 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #0a1a2b;
+            margin-bottom: 4px;
+        }
 
-    .title-group .affiliation strong {
-      font-weight: 600;
-      color: #0b2a44;
-    }
+        .name-title .title-role {
+            font-size: 20px;
+            font-weight: 500;
+            color: #1e3a5f;
+            margin-bottom: 12px;
+        }
 
-    .title-group .contact {
-      font-size: 1rem;
-      color: #1f3a57;
-      margin-top: 0.3rem;
-      line-height: 1.7;
-    }
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 24px;
+            font-size: 15px;
+            margin-top: 6px;
+            color: #1f2a3a;
+        }
 
-    .title-group .contact a {
-      color: #0f3d6b;
-      text-decoration: none;
-      border-bottom: 1px dotted #7d98b3;
-    }
+        .info-grid .label {
+            font-weight: 600;
+            color: #0a1e33;
+        }
 
-    .title-group .contact a:hover {
-      border-bottom: 1px solid #0f3d6b;
-    }
+        .info-grid .value {
+            word-break: break-word;
+        }
 
-    .title-group .research-tags {
-      margin-top: 0.6rem;
-      font-size: 1.08rem;
-      font-weight: 500;
-      color: #00284f;
-      background: #eef4fa;
-      display: inline-block;
-      padding: 0.15rem 1.2rem 0.15rem 1rem;
-      border-radius: 30px;
-      letter-spacing: 0.3px;
-      border: 1px solid #c5d4e3;
-    }
+        .section {
+            margin-top: 30px;
+        }
 
-    /* 通用标题风格 */
-    .section-title {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #0a2642;
-      border-left: 6px solid #1f4b77;
-      padding-left: 0.9rem;
-      margin: 1.8rem 0 1rem 0;
-      font-family: 'Times New Roman', '宋体', serif;
-    }
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0d2b4a;
+            border-bottom: 1.5px solid #b8c7db;
+            padding-bottom: 4px;
+            margin-bottom: 16px;
+            letter-spacing: 0.3px;
+        }
 
-    .section-sub {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #1a3a5a;
-      margin: 1.2rem 0 0.6rem 0;
-      border-bottom: 1px solid #d8e2ed;
-      padding-bottom: 0.2rem;
-    }
+        .section-sub {
+            font-weight: 600;
+            font-size: 17px;
+            margin: 18px 0 8px 0;
+            color: #1e3a5f;
+        }
 
-    .section-content {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: #1b2b3c;
-      text-align: justify;
-    }
+        p, li, .text-body {
+            font-size: 15px;
+            line-height: 1.6;
+            text-align: justify;
+        }
 
-    .section-content p {
-      margin-bottom: 0.6rem;
-    }
+        ul, ol {
+            padding-left: 24px;
+            margin: 6px 0 12px 0;
+        }
 
-    .highlight {
-      font-weight: 600;
-      color: #0a2b4a;
-    }
+        li {
+            margin-bottom: 3px;
+        }
 
-    .inline-list {
-      display: inline;
-      margin: 0;
-      padding: 0;
-    }
+        .pub-list, .patent-list, .project-list, .honor-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
 
-    .inline-list li {
-      display: inline;
-      list-style: none;
-    }
+        .pub-list li, .patent-list li, .project-list li, .honor-list li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            text-indent: -20px;
+            font-size: 15px;
+        }
 
-    .inline-list li:not(:last-child)::after {
-      content: "、";
-    }
+        .pub-list li strong, .patent-list li strong {
+            font-weight: 600;
+        }
 
-    /* 列表样式 */
-    .paper-list, .patent-list, .project-list, .honor-list {
-      list-style: none;
-      padding-left: 0.2rem;
-      margin: 0.5rem 0 0.8rem 0;
-    }
+        .highlight {
+            background-color: #fcf8e7;
+            padding: 0 4px;
+            border-radius: 2px;
+        }
 
-    .paper-list li, .patent-list li, .project-list li, .honor-list li {
-      margin-bottom: 0.45rem;
-      padding-left: 1.4rem;
-      text-indent: -1.2rem;
-      line-height: 1.65;
-    }
+        .mark {
+            background-color: #f1f9f0;
+            padding: 0 4px;
+            border-radius: 2px;
+        }
 
-    .paper-list li::before {
-      content: "• ";
-      color: #1f4b77;
-      font-weight: 700;
-      margin-right: 0.2rem;
-    }
+        .inline-code {
+            font-family: 'Times New Roman', 'Courier New', monospace;
+            background: #f4f6f9;
+            padding: 0 6px;
+            border-radius: 3px;
+            font-size: 14px;
+        }
 
-    .patent-list li::before {
-      content: "▪ ";
-      color: #1f4b77;
-      font-weight: 600;
-    }
+        hr {
+            margin: 28px 0 18px 0;
+            border: 0;
+            border-top: 1px solid #dce3ec;
+        }
 
-    .project-list li::before {
-      content: "◦ ";
-      color: #1f4b77;
-      font-weight: 600;
-    }
+        .flex-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 16px;
+        }
 
-    .honor-list li::before {
-      content: "▫ ";
-      color: #1f4b77;
-      font-weight: 500;
-    }
+        .badge {
+            background: #eef3f9;
+            border-radius: 12px;
+            padding: 0 12px;
+            font-size: 14px;
+            display: inline-block;
+            color: #1b3c61;
+        }
 
-    .paper-list li strong, .patent-list li strong {
-      font-weight: 700;
-      color: #00264a;
-    }
+        /* 保持与word中类似风格 */
+        .meta-line {
+            margin-bottom: 4px;
+        }
 
-    .emph-italic {
-      font-style: italic;
-    }
+        .teaching-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 40px;
+            margin-top: 6px;
+        }
 
-    .badge {
-      background: #e2ebf5;
-      padding: 0.1rem 0.6rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: #0d3c64;
-      white-space: nowrap;
-    }
+        .teaching-grid span {
+            font-size: 15px;
+        }
 
-    .two-col {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      margin: 0.8rem 0;
-    }
-
-    .col {
-      flex: 1 1 280px;
-    }
-
-    /* 课程 */
-    .course-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem 1.8rem;
-      list-style: none;
-      padding: 0.2rem 0 0.2rem 0.2rem;
-      font-size: 1.05rem;
-    }
-
-    .course-list li {
-      background: #f0f5fc;
-      padding: 0.1rem 1rem 0.1rem 0.8rem;
-      border-radius: 30px;
-      border: 1px solid #d0dfee;
-    }
-
-    .small-meta {
-      font-size: 0.92rem;
-      color: #2f4b68;
-    }
-
-    hr {
-      border: 0;
-      border-top: 1px solid #d3dfeb;
-      margin: 1.2rem 0;
-    }
-
-    .mark {
-      background-color: #f9f3d9;
-      padding: 0 0.2rem;
-      border-radius: 3px;
-    }
-
-    /* 响应式 */
-    @media (max-width: 700px) {
-      .page { padding: 1.2rem; }
-      .title-group h1 { font-size: 2rem; }
-      .profile-img { width: 150px; height: 210px; }
-      .header-row { gap: 1rem; }
-    }
-  </style>
+        @media (max-width: 700px) {
+            .page {
+                padding: 28px 18px;
+            }
+            .header {
+                flex-direction: column;
+                align-items: center;
+            }
+            .name-title {
+                text-align: center;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 2px;
+            }
+            .profile-img {
+                flex: 0 0 auto;
+            }
+        }
+    </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- 头部：照片 + 姓名职称等 -->
-  <div class="header-row">
-    <div class="profile-img">
-      <!-- 原文档中有图片占位，但实际无图片，使用占位符显示 -->
-      <div class="profile-img-placeholder">
-        <span>📷<br>whb</span>
-      </div>
+    <!-- 头部：头像 + 姓名职称 + 联系方式 -->
+    <div class="header">
+        <div class="profile-img">
+            <!-- 原word中有图片占位，此处使用占位符表示，保留宽高比例 -->
+            <div class="placeholder" aria-label="王辉兵教授照片">
+                <span>./images/whb.jpg</span>
+            </div>
+            <!-- 如果需要真实图片，可替换为 <img src="media/image1.jpeg" alt="王辉兵"> -->
+        </div>
+        <div class="name-title">
+            <h1>王辉兵 教授/博导</h1>
+            <div class="title-role">学科：计算机科学与技术</div>
+            <div class="info-grid">
+                <div><span class="label">毕业院校：</span>大连理工大学</div>
+                <div><span class="label">通信地址：</span>辽宁省大连市凌海路1号大连海事大学</div>
+                <div><span class="label">邮箱：</span>huibing.wang@dlmu.edu.cn</div>
+                <div><span class="label">主要研究方向：</span><strong>人工智能、水下机器人、大模型技术、计算机视觉</strong></div>
+            </div>
+        </div>
     </div>
-    <div class="title-group">
-      <h1>王辉兵 教授/博导</h1>
-      <div class="subhead"><strong>学科：计算机科学与技术</strong></div>
-      <div class="affiliation"><strong>毕业院校：</strong>大连理工大学</div>
-      <div class="affiliation"><strong>通信地址：</strong>辽宁省大连市凌海路1号大连海事大学</div>
-      <div class="contact"><strong>邮箱：</strong><a href="mailto:huibing.wang@dlmu.edu.cn">huibing.wang@dlmu.edu.cn</a></div>
-      <div class="research-tags">主要研究方向：<strong>人工智能、水下机器人、大模型技术、计算机视觉</strong></div>
+
+    <!-- 个人简介 -->
+    <div class="section">
+        <div class="section-title">| 个人简介</div>
+        <p>王辉兵，大连海事大学<strong>教授、博士生导师</strong>，大连理工大学计算机应用技术专业博士，澳大利亚阿德莱德大学访问学者。目前从事人工智能、水下机器人等技术研究。<strong>入选了交通部领军人才、辽宁省优青、大连市优青</strong>、大连海事大学高层次人才培养计划等人才计划，主持<strong>国家自然科学基金</strong>项目2项（面上、青基）<strong>、国防科工局基础研究重点项目</strong>课题1项、<strong>军委装备发展部综合研究重点项目</strong>课题1项、<strong>国家重点研发计划</strong>子课题2项<strong>、工信部重点专项</strong>子课题1项目、辽宁省自然科学基金3项（<strong>省优青</strong>、面上、青年各1项），大连市科技项目2项（<strong>市优青</strong>、应用基础各1项）等科研项目10余项；近五年在<strong>CCF A、中科院一区</strong>等顶级期刊/会议<strong>发表学术论文50余篇</strong>，8篇论文被列为ESI高被引论文（其中3篇被列为ESI热点论文），论文引用4300+次，<strong>连续两年（2024-2025）入选全球前2%高被引科学家</strong>榜单；授权/申请国家发明专利60余项，<strong>发明专利成果转化1500万元</strong>；<strong>制定辽宁省技术标准1项；获中国仿真学会新技术二等奖（排名第一）、大连市自然科学二等奖1项（排名第一）</strong>、中国产学研合作创新成果一等奖<strong>；</strong>指导学生在全国水下机器人大赛、国际水中机器人大赛、全国机器人大赛获奖40余次；担任<strong>国际顶级期刊IEEE Transactions on Vehicular Technology副主编、Pattern Recognition副主编、</strong>Discover Artificial Intelligence、InUS Transactions等期刊副主编，<strong>担任辽宁省水下机器人工程研究中心常务副主任</strong>、辽宁省海底环境科学数据中心副主任、承担工业和信息化部"新一代人工智能产业创新重点任务"。</p>
     </div>
-  </div>
 
-  <!-- 个人简介 -->
-  <div class="section-title">| 个人简介</div>
-  <div class="section-content">
-    <p>王辉兵，大连海事大学<strong>教授、博士生导师</strong>，大连理工大学计算机应用技术专业博士，澳大利亚阿德莱德大学访问学者。目前从事人工智能、水下机器人等技术研究。<strong>入选了交通部领军人才、辽宁省优青、大连市优青</strong>、大连海事大学高层次人才培养计划等人才计划，主持<strong>国家自然科学基金</strong>项目2项（面上、青基）<strong>、国防科工局基础研究重点项目</strong>课题1项、<strong>军委装备发展部综合研究重点项目</strong>课题1项、<strong>国家重点研发计划</strong>子课题2项<strong>、工信部重点专项</strong>子课题1项目、辽宁省自然科学基金3项（<strong>省优青</strong>、面上、青年各1项），大连市科技项目2项（<strong>市优青</strong>、应用基础各1项）等科研项目10余项；近五年在<strong>CCF A、中科院一区</strong>等顶级期刊/会议<strong>发表学术论文50余篇</strong>，8篇论文被列为ESI高被引论文（其中3篇被列为ESI热点论文），论文引用4300+次，<strong>连续两年（2024-2025）入选全球前2%高被引科学家</strong>榜单；授权/申请国家发明专利60余项，<strong>发明专利成果转化1500万元</strong>；<strong>制定辽宁省技术标准1项；获中国仿真学会新技术二等奖（排名第一）、大连市自然科学二等奖1项（排名第一）</strong>、中国产学研合作创新成果一等奖<strong>；</strong>指导学生在全国水下机器人大赛、国际水中机器人大赛、全国机器人大赛获奖40余次；担任<strong>国际顶级期刊IEEE Transactions on Vehicular Technology副主编、Pattern Recognition副主编、</strong>Discover Artificial Intelligence、InUS Transactions等期刊副主编，<strong>担任辽宁省水下机器人工程研究中心常务副主任</strong>、辽宁省海底环境科学数据中心副主任、承担工业和信息化部“新一代人工智能产业创新重点任务”。</p>
-  </div>
+    <!-- 教育经历 + 工作经历 -->
+    <div class="section">
+        <div class="section-title">| 教育经历</div>
+        <ul style="list-style: none; padding-left: 0;">
+            <li>2016.10-2017.09 澳大利亚阿德莱德大学 计算机科学与技术 博士联合培养</li>
+            <li>2012.09-2018.06 大连理工大学 计算机应用技术 博士研究生</li>
+        </ul>
 
-  <!-- 教育经历 + 工作经历 两列 -->
-  <div class="two-col">
-    <div class="col">
-      <div class="section-title" style="margin-top:0.2rem;">| 教育经历</div>
-      <ul class="paper-list" style="list-style:none; padding-left:0;">
-        <li style="text-indent:0; padding-left:0;"><strong>2016.10-2017.09</strong> 澳大利亚阿德莱德大学 计算机科学与技术 博士联合培养</li>
-        <li style="text-indent:0; padding-left:0;"><strong>2012.09-2018.06</strong> 大连理工大学 计算机应用技术 博士研究生</li>
-      </ul>
+        <div class="section-title" style="margin-top: 24px;">| 工作经历</div>
+        <ul style="list-style: none; padding-left: 0;">
+            <li>2026.07- 至今 大连海事大学 信息科学技术学院 教授</li>
+            <li>2020.12 - 至今 大连海事大学 信息科学技术学院 副教授</li>
+            <li>2018.12-2020.12 大连海事大学 信息科学技术学院 博士后</li>
+        </ul>
     </div>
-    <div class="col">
-      <div class="section-title" style="margin-top:0.2rem;">| 工作经历</div>
-      <ul class="paper-list" style="list-style:none; padding-left:0;">
-        <li style="text-indent:0; padding-left:0;"><strong>2018.12-2020.12</strong> 大连海事大学 信息科学技术学院 博士后</li>
-        <li style="text-indent:0; padding-left:0;"><strong>2020.12 - 至今</strong> 大连海事大学 信息科学技术学院 副教授</li>
-      </ul>
+
+    <!-- 讲授课程 -->
+    <div class="section">
+        <div class="section-title">讲授课程</div>
+        <div class="teaching-grid">
+            <span>1. 操作系统</span>
+            <span>2. Unix/Linux操作系统</span>
+        </div>
     </div>
-  </div>
 
-  <!-- 讲授课程 -->
-  <div class="section-sub">讲授课程</div>
-  <ul class="course-list">
-    <li>1. 操作系统</li>
-    <li>2. Unix/Linux操作系统</li>
-  </ul>
+    <!-- 学术成果 -->
+    <div class="section">
+        <div class="section-title">学术成果</div>
+        <div class="section-sub">| 在CCF A、中科院一区等顶级期刊/会议发表学术论文50余篇，仅列10篇最新论文，如下：</div>
+        <ol class="pub-list" style="list-style: none; padding-left: 0;">
+            <li>1. Jinjia Peng, <strong>Huibing Wang*</strong>, Dynamic Magic: Unleashing Restricted Knowledge for Lifelong Person Re-Identification. IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR). (CCF A，通讯作者）</li>
+            <li>2. Jinjia Peng, <strong>Huibing Wang*</strong>, Bi-level Inter-modality Modulation for Unsupervised Visible-Infrared Person Re-Identification. IEEE Transactions on Information Forensics and Security (IEEE TIFS). (CCF A，通讯作者）</li>
+            <li>3. Yimin Jiang, <strong>Huibing Wang*</strong>, et al., Spatiotemporal Consensus with Scene Prior for Unsupervised Domain Adaptive Person Search. International Conference on Neural Information Processing Systems (NeurIPS 2025). (CCF A，通讯作者）</li>
+            <li>4. Jiqing Zhang, Xin Yang, Baocai Yin, <strong>Huibing Wang*</strong>, Xianping Fu, Efficient Vision Transformer with Token Sparsification for Event-based Object Tracking. International Journal of Computer Vision. (CCF A，通讯作者）</li>
+            <li>5. Jinjia Peng, <strong>Huibing Wang*</strong>, et.al., Boosting Adversarial Transferability via Residual Perturbation Attack. International Conference on Computer Vision (ICCV 2025). (CCF A，通讯作者）</li>
+            <li>6. Luyan Cui, <strong>Huibing Wang*</strong>, et al., Dual-Constraint Multi-view Fuzzy Clustering with Scalable Anchor Graph Learning. ACM International Conference on Multimedia (ACM MM 2025). (CCF A，通讯作者）</li>
+            <li>7. <strong>Huibing Wang</strong>, et al., Scale-Aware Domain Harmonization for Domain Adaptation Person Search, International Conference on Machine Learning (ICML2026). (CCF A，第一作者）</li>
+            <li>8. Linfeng Qi, <strong>Huibing Wang*</strong>, et al. Unsupervised Domain Adaptive Person Search via Dual Self-Calibration. AAAI Conference on Artificial Intelligence (AAAI 2025). (CCF A，通讯作者）</li>
+            <li>9. <strong>Huibing Wang</strong>, et al., Dual-Calibration Multi-View Clustering via Compact Anchor Learning. International Conference on Machine Learning (ICML2026). (CCF A，第一作者）</li>
+            <li>10. <strong>Huibing Wang</strong>, et al., Manifold-based Incomplete Multi-view Clustering via Bi-Consistency Guidance. IEEE Transactions on Multimedia, 2024. (CCF A, ESI热点论文，第一作者）</li>
+        </ol>
 
-  <!-- 学术成果 -->
-  <div class="section-title">学术成果</div>
-  <div class="section-sub" style="border-bottom: none; font-weight:600; margin-top:0.2rem;">| 在CCF A、中科院一区等顶级期刊/会议发表学术论文50余篇，仅列10篇最新论文，如下：</div>
-  <ul class="paper-list">
-    <li>Jinjia Peng, <strong>Huibing Wang*</strong>, Dynamic Magic: Unleashing Restricted Knowledge for Lifelong Person Re-Identification. IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR). (CCF A，通讯作者）</li>
-    <li>Jinjia Peng, <strong>Huibing Wang*</strong>, Bi-level Inter-modality Modulation for Unsupervised Visible-Infrared Person Re-Identification. IEEE Transactions on Information Forensics and Security (IEEE TIFS). (CCF A，通讯作者）</li>
-    <li>Yimin Jiang, <strong>Huibing Wang*</strong>, et al., Spatiotemporal Consensus with Scene Prior for Unsupervised Domain Adaptive Person Search. International Conference on Neural Information Processing Systems (NeurIPS 2025). (CCF A，通讯作者）</li>
-    <li>Jiqing Zhang, Xin Yang, Baocai Yin, <strong>Huibing Wang*</strong>, Xianping Fu, Efficient Vision Transformer with Token Sparsification for Event-based Object Tracking. International Journal of Computer Vision. (CCF A，通讯作者）</li>
-    <li>Jinjia Peng, <strong>Huibing Wang*</strong>, et.al., Boosting Adversarial Transferability via Residual Perturbation Attack. International Conference on Computer Vision (ICCV 2025). (CCF A，通讯作者）</li>
-    <li>Luyan Cui, <strong>Huibing Wang*</strong>, et al., Dual-Constraint Multi-view Fuzzy Clustering with Scalable Anchor Graph Learning. ACM International Conference on Multimedia (ACM MM 2025). (CCF A，通讯作者）</li>
-    <li><strong>Huibing Wang</strong>, et al., Scale-Aware Domain Harmonization for Domain Adaptation Person Search, International Conference on Machine Learning (ICML2026). (CCF A，第一作者）</li>
-    <li>Linfeng Qi, <strong>Huibing Wang*</strong>, et al. Unsupervised Domain Adaptive Person Search via Dual Self-Calibration. AAAI Conference on Artificial Intelligence (AAAI 2025). (CCF A，通讯作者）</li>
-    <li><strong>Huibing Wang</strong>, et al., Dual-Calibration Multi-View Clustering via Compact Anchor Learning. International Conference on Machine Learning (ICML2026). (CCF A，第一作者）</li>
-    <li><strong>Huibing Wang</strong>, et al., Manifold-based Incomplete Multi-view Clustering via Bi-Consistency Guidance. IEEE Transactions on Multimedia, 2024. (CCF A, ESI热点论文，第一作者）</li>
-  </ul>
+        <div class="section-sub" style="margin-top: 24px;">| 专利成果(申请、授权发明专利60余项，仅列5项代表专利)</div>
+        <ol class="patent-list" style="list-style: none; padding-left: 0;">
+            <li>1. 一种基于水下线索驱动提示学习的端到端单目标跟踪方法 . 王辉兵等人，CN119832025A, 发明专利.</li>
+            <li>2. 一种基于多视图图细化的不完全高光谱图像分类方法. 王辉兵等人，CN119313940A, 发明专利.</li>
+            <li>3. 一种基于径向梯度迭代网络的水下光晕图像清晰化方法. 王辉兵等人，CN119180760A, 发明专利.</li>
+            <li>4. 一种基于特征融合的细粒度图像生成的行人搜索方法. 王辉兵等人，CN116453168A, 发明专利.</li>
+            <li>5. 一种基于离散反馈的水下高光谱共识聚类方法. 王辉兵等人，CN122368549A, 发明专利.</li>
+        </ol>
+    </div>
 
-  <!-- 专利成果 -->
-  <div class="section-sub">| 专利成果(申请、授权发明专利60余项，仅列5项代表专利)</div>
-  <ul class="patent-list">
-    <li>一种基于水下线索驱动提示学习的端到端单目标跟踪方法 . 王辉兵等人，CN119832025A, 发明专利.</li>
-    <li>一种基于多视图图细化的不完全高光谱图像分类方法. 王辉兵等人，CN119313940A, 发明专利.</li>
-    <li>一种基于径向梯度迭代网络的水下光晕图像清晰化方法. 王辉兵等人，CN119180760A, 发明专利.</li>
-    <li>一种基于特征融合的细粒度图像生成的行人搜索方法. 王辉兵等人，CN116453168A, 发明专利.</li>
-    <li>一种基于离散反馈的水下高光谱共识聚类方法. 王辉兵等人，CN122368549A, 发明专利.</li>
-  </ul>
+    <!-- 科研项目 -->
+    <div class="section">
+        <div class="section-title">| 科研项目</div>
+        <ol class="project-list" style="list-style: none; padding-left: 0;">
+            <li>1. 面向多模态数据缺失的水下三维全景构建方法研究，国家自然科学基金面上项目，2026.01-2029.12，主持</li>
+            <li>2. <span class="mark">智能水中********技术，国防科技工业局基础研究重点项目课题，2026.01-2027.12，主持</span></li>
+            <li>3. <span class="mark">基于大模型的******系统，军委装备发展部综合研究重点项目课题，2026.01-2027.12，主持</span></li>
+            <li>4. 基于视觉多模态感知的水下场景理解方法研究，辽宁省自然科学基金青年项目B类(原省优青)，2025.07-至今，主持</li>
+            <li>5. 常驻型海底设施自主巡检与作业机器人关键技术及示范，国家重点研发计划子课题，2025.01-2027.12，主持</li>
+            <li>6. <span class="mark">******</span>感知技术，国家重点研发计划子课题，2020.10-2024.05，主持</li>
+            <li>7. 基于多模态融合的水下环境感知方法研究，大连市优秀青年基金，2024.01-2025.12，主持</li>
+            <li>8. 水下机器人光视觉环境感知技术研究，辽宁省自然科学基金面上项目，2024.09-2026.08，主持</li>
+            <li>9. 养殖海参及环境一体化感知关键技术研究，大连市科技创新应用基础项目，2022.01-2025.12，主持</li>
+            <li>10. 基于多源信息融合的水下机器人目标识别方法研究，国家自然科学基金青年基金，2021.01-2023.12，主持</li>
+            <li>11. 基于多视角学习的水下机器人目标识别算法研究，中国博士后面上项目，2019-06-2021-05，主持</li>
+            <li>12. 基于多源数据的水下机器人目标识别算法研究，辽宁省自然科学基金青年项目，2021.06-2023.06，主持</li>
+            <li>13. 海洋牧场建设中水下捕捞机器人就集群关键技术研究，辽宁省高校基本业务费，2022.02-2024.01，主持</li>
+            <li>14. 注采联动综合自动控制技术研究，中国石油天然气股份有限公司，2022.08-2022.12，主持</li>
+            <li>15. 智能感知模型与******软件，中国人民解放军某部，2024.02-2024.08，主持</li>
+            <li>16. 水下小目标检测系统方案，大连壹鲜冷水海产品有限公司，2020.05-2020.12，主持</li>
+            <li>17. 国家重点研发计划政府间重点专项, 光学视野辅助产品与训练平台研究及应用示范, 2022-11至 2025-10.</li>
+            <li>18. 水下捕捞机器人，工业和信息化部"新一代人工智能产业创新揭榜重点任务"，2019-01 至 2020-12.</li>
+        </ol>
+    </div>
 
-  <!-- 科研项目 -->
-  <div class="section-sub">| 科研项目</div>
-  <ul class="project-list">
-    <li>面向多模态数据缺失的水下三维全景构建方法研究，国家自然科学基金面上项目，2026.01-2029.12，主持</li>
-    <li><span class="mark">智能水中********技术</span>，国防科技工业局基础研究重点项目课题，2026.01-2027.12，主持</li>
-    <li><span class="mark">基于大模型的******系统</span>，军委装备发展部综合研究重点项目课题，2026.01-2027.12，主持</li>
-    <li>基于视觉多模态感知的水下场景理解方法研究，辽宁省自然科学基金青年项目B类(原省优青)，2025.07-至今，主持</li>
-    <li>常驻型海底设施自主巡检与作业机器人关键技术及示范，国家重点研发计划子课题，2025.01-2027.12，主持</li>
-    <li><span class="mark">******</span>感知技术，国家重点研发计划子课题，2020.10-2024.05，主持</li>
-    <li>基于多模态融合的水下环境感知方法研究，大连市优秀青年基金，2024.01-2025.12，主持</li>
-    <li>水下机器人光视觉环境感知技术研究，辽宁省自然科学基金面上项目，2024.09-2026.08，主持</li>
-    <li>养殖海参及环境一体化感知关键技术研究，大连市科技创新应用基础项目，2022.01---2025.12，主持</li>
-    <li>基于多源信息融合的水下机器人目标识别方法研究，国家自然科学基金青年基金，2021.01---2023.12，主持</li>
-    <li>基于多视角学习的水下机器人目标识别算法研究，中国博士后面上项目，2019-06---2021-05，主持</li>
-    <li>基于多源数据的水下机器人目标识别算法研究，辽宁省自然科学基金青年项目，2021.06---2023.06，主持</li>
-    <li>海洋牧场建设中水下捕捞机器人就集群关键技术研究，辽宁省高校基本业务费，2022.02---2024.01，主持</li>
-    <li>注采联动综合自动控制技术研究，中国石油天然气股份有限公司，2022.08-2022.12，主持</li>
-    <li>智能感知模型与******软件，中国人民解放军某部，2024.02-2024.08，主持</li>
-    <li>水下小目标检测系统方案，大连壹鲜冷水海产品有限公司，2020.05-2020.12，主持</li>
-    <li>国家重点研发计划政府间重点专项, 光学视野辅助产品与训练平台研究及应用示范, 2022-11至 2025-10.</li>
-    <li>水下捕捞机器人，工业和信息化部“新一代人工智能产业创新揭榜重点任务”，2019-01 至 2020-12.</li>
-  </ul>
+    <!-- 主要荣誉 -->
+    <div class="section">
+        <div class="section-title">| 主要荣誉</div>
+        <ul class="honor-list" style="list-style: none; padding-left: 0;">
+            <li>1. 2025年全球前2%顶级科学家榜单，斯坦福大学，Elsevier</li>
+            <li>2. 2024年全球前2%顶级科学家榜单，斯坦福大学，Elsevier</li>
+            <li>3. 中国仿真学会创新技术二等奖，中国仿真学会，2026</li>
+            <li>4. 大连市自然科学二等奖，大连市科学技术局，2025</li>
+            <li>5. 中国产学研合作创新成果一等奖，中国产学研合作促进会，2021</li>
+            <li>6. 教育部博士国家奖学金，教育部，2015</li>
+            <li>7. 教育部博士国家奖学金，教育部，2016</li>
+            <li>8. 全国水下机器人目标抓取大赛目标识别在线组二等奖，国家自然科学基金委信息学部，2019</li>
+            <li>9. 全国水下机器人目标抓取大赛目标识别离线组三等奖，国家自然科学基金委信息学部，2019</li>
+            <li>10. 全国水下机器人目标抓取大赛人机协同抓取优秀奖，国家自然科学基金委信息学部，2019</li>
+        </ul>
+    </div>
 
-  <!-- 主要荣誉 -->
-  <div class="section-sub">| 主要荣誉</div>
-  <ul class="honor-list">
-    <li>2025年全球前2%顶级科学家榜单，斯坦福大学，Elsevier</li>
-    <li>2024年全球前2%顶级科学家榜单，斯坦福大学，Elsevier</li>
-    <li>中国仿真学会创新技术二等奖，中国仿真学会，2026</li>
-    <li>大连市自然科学二等奖，大连市科学技术局，2025</li>
-    <li>中国产学研合作创新成果一等奖，中国产学研合作促进会，2021</li>
-    <li>教育部博士国家奖学金，教育部，2015</li>
-    <li>教育部博士国家奖学金，教育部，2016</li>
-    <li>全国水下机器人目标抓取大赛目标识别在线组二等奖，国家自然科学基金委信息学部，2019</li>
-    <li>全国水下机器人目标抓取大赛目标识别离线组三等奖，国家自然科学基金委信息学部，2019</li>
-    <li>全国水下机器人目标抓取大赛人机协同抓取优秀奖，国家自然科学基金委信息学部，2019</li>
-  </ul>
-
-  <div style="margin-top: 1.8rem; border-top: 1px solid #d3dfeb; padding-top: 0.4rem; font-size:0.85rem; color:#4b5f73; text-align:right;">大连海事大学 · 王辉兵 教授</div>
+    <!-- 底部空行保持与原文档一致，无额外信息 -->
 </div>
 </body>
 </html>
