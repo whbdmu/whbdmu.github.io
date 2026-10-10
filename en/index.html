@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Huibing Wang · Professor · Dalian Maritime University</title>
+<meta name="description" content="Huibing Wang is a Professor at the School of Information Science and Technology, Dalian Maritime University, working on computer vision, multimedia analysis, multi-view learning, and underwater robotics.">
+<style>
+    :root {
+        --navy: #0b2a49;
+        --navy-2: #1f3f62;
+        --steel: #2c3e50;
+        --line: #b8c9dd;
+        --line-soft: #dce4ee;
+        --bg: #eef2f7;
+        --card: #ffffff;
+        --ink: #1a1f2b;
+        --muted: #55637a;
+        --accent: #16548e;
+        --tag-bg: #eaf2fb;
+        --tag-ink: #16548e;
+        --hot-bg: #fdf1e7;
+        --hot-ink: #a2541c;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+        background: var(--bg);
+        font-family: Georgia, 'Times New Roman', 'Noto Serif', serif;
+        color: var(--ink);
+        line-height: 1.6;
+        padding: 0 0 60px;
+    }
+
+    /* ---------- top nav ---------- */
+    .nav {
+        position: sticky; top: 0; z-index: 50;
+        background: var(--navy);
+        box-shadow: 0 2px 10px rgba(7, 24, 43, 0.35);
+    }
+    .nav-inner {
+        max-width: 1100px; margin: 0 auto; padding: 0 24px;
+        display: flex; align-items: center; gap: 4px; flex-wrap: wrap;
+    }
+    .nav .brand {
+        color: #fff; font-size: 16px; font-weight: 700; letter-spacing: 0.4px;
+        padding: 12px 14px 12px 0; margin-right: auto; white-space: nowrap;
+    }
+    .nav a.item {
+        color: #c9d8ea; text-decoration: none; font-size: 14px;
+        font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        padding: 14px 11px; border-bottom: 2.5px solid transparent;
+    }
+    .nav a.item:hover { color: #fff; border-bottom-color: #7fa8d4; }
+    .nav a.item:last-child { margin-right: 0; }
+
+    .page {
+        max-width: 1100px; width: 100%; margin: 34px auto 0; padding: 0 24px;
+    }
+    .card {
+        background: var(--card);
+        box-shadow: 0 8px 28px rgba(0,0,0,0.07);
+        border-radius: 4px;
+        padding: 46px 52px;
+    }
+
+    /* ---------- header ---------- */
+    .header {
+        display: flex; flex-wrap: wrap; gap: 34px; align-items: flex-start;
+        border-bottom: 2px solid var(--steel); padding-bottom: 24px;
+    }
+    .photo { flex: 0 0 150px; }
+    .photo .frame {
+        width: 150px; height: 195px; border: 1px solid var(--line);
+        border-radius: 4px; overflow: hidden; background: #eef3fa;
+        display: flex; align-items: center; justify-content: center;
+    }
+    .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .photo .fallback {
+        width: 100%; height: 100%;
+        background: linear-gradient(160deg, #dfe9f5, #c3d4e8);
+        display: flex; align-items: center; justify-content: center;
+        color: var(--navy-2); font-size: 44px; font-weight: 700; letter-spacing: 2px;
+    }
+    .head-info { flex: 1; min-width: 300px; }
+    .head-info h1 { font-size: 34px; color: var(--navy); letter-spacing: 0.3px; }
+    .head-info .role { font-size: 19px; color: var(--navy-2); margin: 2px 0 4px; }
+    .head-info .affil { font-size: 15.5px; color: var(--muted); font-style: italic; }
+    .head-info .addr { font-size: 14.5px; color: var(--muted); margin-top: 2px; }
+    .contact-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .pill {
+        display: inline-flex; align-items: center; gap: 7px;
+        font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        font-size: 13.5px; text-decoration: none;
+        border: 1px solid var(--line); border-radius: 20px;
+        padding: 6px 15px; color: var(--accent); background: #f7fafd;
+    }
+    .pill:hover { background: var(--tag-bg); border-color: var(--accent); }
+    .pill svg { width: 15px; height: 15px; }
+
+    <!-- ---------- news ---------- (removed) -->
+
+    /* ---------- sections ---------- */
+    .section { margin-top: 38px; scroll-margin-top: 70px; }
+    .section-title {
+        font-size: 21px; font-weight: 700; color: var(--navy);
+        border-bottom: 1.5px solid var(--line); padding-bottom: 6px;
+        margin-bottom: 16px; letter-spacing: 0.4px;
+    }
+    .section-title::before { content: "| "; color: var(--accent); }
+    p { font-size: 15px; text-align: justify; margin-bottom: 10px; }
+    p:last-child { margin-bottom: 0; }
+
+    /* academic metrics — single horizontal strip, dividers instead of cards */
+    .metrics {
+        display: flex; flex-wrap: nowrap;
+        border-top: 1px solid var(--line-soft);
+        border-bottom: 1px solid var(--line-soft);
+    }
+    .metric {
+        flex: 1 1 0; min-width: 0; text-align: center;
+        padding: 16px 4px 14px;
+    }
+    .metric + .metric { border-left: 1px solid var(--line-soft); }
+    .metric b {
+        display: block; font-size: 23px; color: var(--navy);
+        letter-spacing: 0.3px; line-height: 1.15;
+    }
+    .metric span {
+        font-family: 'Segoe UI', Arial, sans-serif; font-size: 10.5px;
+        color: var(--muted); letter-spacing: 0.6px; text-transform: uppercase;
+        display: block; margin-top: 3px; line-height: 1.35;
+    }
+
+    .two-col { display: flex; flex-wrap: wrap; gap: 40px; }
+    .two-col > div { flex: 1 1 340px; }
+    .sub-title {
+        font-size: 16.5px; font-weight: 700; color: var(--navy-2);
+        margin: 4px 0 10px;
+    }
+    .sub-title::before { content: "· "; color: var(--accent); }
+    ul.plain { list-style: none; }
+    ul.plain li { font-size: 15px; margin-bottom: 9px; padding-left: 2px; }
+    ul.plain .when {
+        font-family: 'Segoe UI', Arial, sans-serif; font-size: 13.5px;
+        color: var(--accent); display: inline-block; min-width: 150px;
+    }
+    ul.plain .what { color: var(--ink); }
+    ul.plain .where { color: var(--muted); }
+
+    /* research interests */
+    .chips { display: flex; flex-wrap: wrap; gap: 9px; margin: 4px 0 14px; }
+    .chip {
+        font-family: 'Segoe UI', Arial, sans-serif; font-size: 13.5px;
+        background: var(--tag-bg); color: var(--tag-ink);
+        border-radius: 16px; padding: 5px 14px; border: 1px solid #d4e3f4;
+    }
+    .interests li b { color: var(--navy-2); }
+
+    /* publications */
+    .pub-note { font-size: 13.5px; color: var(--muted); font-style: italic; margin-bottom: 12px; }
+    ol.pub-list { list-style: none; counter-reset: pub; }
+    ol.pub-list > li {
+        counter-increment: pub; margin-bottom: 14px; padding-left: 30px;
+        text-indent: -30px; font-size: 15px;
+    }
+    ol.pub-list > li::before {
+        content: "[" counter(pub) "] ";
+        font-family: 'Segoe UI', Arial, sans-serif; font-size: 13.5px;
+        color: var(--accent); font-weight: 600;
+    }
+    .pub-authors { color: var(--ink); }
+    .pub-title { font-weight: 700; color: #10263e; }
+    .pub-venue { font-style: italic; color: var(--navy-2); }
+    .tag {
+        font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px;
+        border-radius: 3px; padding: 1.5px 7px; margin-left: 6px;
+        white-space: nowrap; letter-spacing: 0.3px;
+    }
+    .tag.ccf { background: var(--tag-bg); color: var(--tag-ink); border: 1px solid #cfe0f1; }
+    .tag.hot { background: var(--hot-bg); color: var(--hot-ink); border: 1px solid #f0d8c0; }
+    .cites { color: var(--muted); font-size: 13px; }
+
+    /* service */
+    .journal { font-weight: 700; color: #10263e; }
+    .duty { color: var(--muted); font-size: 13.5px; }
+
+    footer {
+        margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--line-soft);
+        font-size: 13px; color: var(--muted); text-align: center;
+        font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    footer a { color: var(--accent); text-decoration: none; margin: 0 5px; }
+    footer .sep { color: #9fb0c4; margin: 0 7px; }
+
+    @media (max-width: 760px) {
+        .card { padding: 26px 18px; }
+        .header { flex-direction: column; align-items: center; text-align: center; }
+        .head-info { text-align: center; }
+        .contact-row { justify-content: center; }
+        ul.plain .when { display: block; min-width: 0; }
+        .nav .brand { display: none; }
+        /* metrics strip: degrade to a 3x2 grid on phones instead of squashing one row */
+        .metrics { flex-wrap: wrap; }
+        .metric { flex: 1 1 33.33%; border-left: 0 !important; }
+        .metric:nth-child(n+4) { border-top: 1px solid var(--line-soft); }
+        .metric b { font-size: 19px; }
+        .metric span { font-size: 9.5px; }
+    }
+    /* PDF is generated by make_pdf.js (CDP printToPDF): paper 1280px wide ->
+       desktop layout natively, no mobile breakpoint. Don't go back to CLI
+       --print-to-pdf: it lays out at ~740px and would trip the mobile styles.
+       The PDF keeps only the card (main body): no nav bar, no gray surround. */
+    @media print {
+        * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        body { background: #fff; padding: 0; }
+        .nav { display: none; }
+        .page { max-width: none; margin: 0; padding: 0; }
+        .card { max-width: none; box-shadow: none; border-radius: 0; }
+        .pill.cv { display: none; } /* the CV itself must not contain a download button */
+    }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <span class="brand">Huibing Wang</span>
+        <a class="item" href="#about">Biography</a>
+        <a class="item" href="#research">Research</a>
+        <a class="item" href="#publications">Papers</a>
+        <a class="item" href="#service">Service</a>
+    </div>
+</nav>
+
+<div class="page">
+<div class="card">
+
+    <!-- ============ header ============ -->
+    <div class="header">
+        <div class="photo">
+            <div class="frame">
+                <!-- Photo ships in the same directory; if deploying under /en/, copy huibingwang.jpg alongside. -->
+                <img src="huibingwang.jpg" alt="Huibing Wang"
+                     onerror="this.outerHTML='<div class=\'fallback\'>HW</div>';">
+            </div>
+        </div>
+        <div class="head-info">
+            <h1>Huibing Wang</h1>
+            <div class="role">Professor</div>
+            <div class="affil">School of Information Science and Technology, Dalian Maritime University</div>
+            <div class="contact-row">
+                <a class="pill" href="mailto:huibing.wang@dlmu.edu.cn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+                    huibing.wang@dlmu.edu.cn</a>
+                <a class="pill" href="https://scholar.google.com/citations?hl=en&user=Jo2LiS0AAAAJ" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    Google Scholar</a>
+                <a class="pill cv" id="cv-link" href="HuibingWang_CV.pdf">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
+                    Download CV</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ biography ============ -->
+    <div class="section" id="about">
+        <div class="section-title">Biography</div>
+        <p>
+            Huibing Wang is a Professor with the School of Information Science and Technology,
+            Dalian Maritime University, China. He received the Ph.D. degree in computer applied
+            technology from Dalian University of Technology in 2018, and was a joint Ph.D. student
+            at the University of Adelaide, Australia (2016&ndash;2017). His research focuses on
+            computer vision, multimedia analysis, multi-view learning, and intelligent perception
+            for underwater robotics. He has published 60+ papers in top-tier venues such as IEEE
+            TMM, TIFS, IJCV, CVPR, ICCV, NeurIPS, ICML, AAAI, IJCAI, and ACM MM, with ten
+            ESI Highly Cited Papers (four ESI Hot Papers). He was listed among the World's Top 2%
+            Scientists (Stanford University &amp; Elsevier) for three consecutive years (2024&ndash;2026). He is a Leading Talent of the Ministry of Transport of China and a recipient of the Liaoning Provincial Excellent Young Scientists Fund. He serves on the
+            editorial boards of IEEE Transactions on Vehicular Technology, Pattern Recognition,
+            and other journals.
+        </p>
+    </div>
+
+    <!-- ============ academic metrics ============ -->
+    <div class="section" id="metrics">
+        <div class="section-title">Academic Metrics</div>
+        <div class="metrics">
+            <div class="metric"><b>60+</b><span>Top-tier papers<br>(5 yrs)</span></div>
+            <div class="metric"><b>4,518</b><span>Citations<br>(Google Scholar)</span></div>
+            <div class="metric"><b>34 · 74</b><span>h-index ·<br>i10-index</span></div>
+            <div class="metric"><b>10 / 4</b><span>ESI Highly Cited<br>/ Hot Papers</span></div>
+            <div class="metric"><b>60+</b><span>Invention<br>patents</span></div>
+            <div class="metric"><b>Top 2%</b><span>Scientists<br>2024&ndash;2026</span></div>
+        </div>
+    </div>
+
+    <!-- ============ education ============ -->
+    <div class="section" id="education">
+        <div class="section-title">Education</div>
+        <ul class="plain">
+            <li>
+                <span class="when">2012.09 &ndash; 2018.06</span><br>
+                <span class="what">Ph.D. in Computer Applied Technology</span>
+                <span class="where">&mdash; Dalian University of Technology, China</span>
+            </li>
+            <li>
+                <span class="when">2016.10 &ndash; 2017.09</span><br>
+                <span class="what">Joint Ph.D. Program, Computer Science</span>
+                <span class="where">&mdash; The University of Adelaide, Australia</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ============ research ============ -->
+    <div class="section" id="research">
+        <div class="section-title">Research Interests</div>
+        <div class="chips">
+            <span class="chip">Computer Vision</span>
+            <span class="chip">Multimedia Analysis</span>
+            <span class="chip">Multi-view Learning</span>
+            <span class="chip">Person Re-Identification &amp; Search</span>
+            <span class="chip">Domain Adaptation</span>
+            <span class="chip">Underwater Robotics</span>
+            <span class="chip">Foundation Models</span>
+        </div>
+        <ul class="plain interests">
+            <li><b>Computer vision &amp; multimedia analysis</b> — person re-identification and person search,
+                unsupervised domain adaptation, event-based visual tracking, and adversarial robustness.</li>
+            <li><b>Multi-view learning</b> — incomplete multi-view clustering, anchor-graph learning, and
+                tensor completion for heterogeneous multimodal data.</li>
+            <li><b>Intelligent underwater systems</b> — visual perception, 3D panoramic reconstruction with
+                missing modalities, hyperspectral analysis, and underwater robots for marine ranching.</li>
+        </ul>
+    </div>
+
+    <!-- ============ publications ============ -->
+    <div class="section" id="publications">
+        <div class="section-title">Selected Papers</div>
+        <div class="pub-note">
+            Selected papers in top-tier venues (CCF-A conferences, Q1 journals, and IEEE/ACM Transactions).
+            <em>*</em> denotes corresponding author. Full list on
+            <a href="https://scholar.google.com/citations?hl=en&user=Jo2LiS0AAAAJ" target="_blank" rel="noopener">Google Scholar</a>.
+        </div>
+                <ol class="pub-list">
+
+
+
+            <li>
+                <span class="pub-authors">G. Jiang, J. Luo, H. Hou, Y. Liu, <b>Huibing Wang*</b>,</span>
+                <span class="pub-title">Multi-scale Graph-guided Hybrid Contrastive Learning for Multi-view Clustering.</span>
+                <span class="pub-venue">IEEE Transactions on Geoscience and Remote Sensing (TGRS), 2026.</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">C. Yang, <b>Huibing Wang*</b>, J. Wang, X. Fu,</span>
+                <span class="pub-title">Tensor Refining with Focal Distillation for Incomplete Multi-view Clustering.</span>
+                <span class="pub-venue">IEEE Transactions on Systems, Man, and Cybernetics: Systems (TSMCS), 2026.</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">G. Jiang, J. Luo, H. Hou, Y. Liu, <b>Huibing Wang*</b>,</span>
+                <span class="pub-title">Decoupling Exploration and Retention: A Dual-Stream Framework for Continual Multi-view Clustering.</span>
+                <span class="pub-venue">ACM International Conference on Multimedia (ACM MM), 2026.</span> <span class="tag ccf">CCF-A</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">J. Yang, J. Wang, H. Liu, et al., <b>Huibing Wang*</b>,</span>
+                <span class="pub-title">Dual-Alignment Multi-view Clustering via Adaptive Tensor Learning.</span>
+                <span class="pub-venue">ACM International Conference on Multimedia (ACM MM), 2026.</span> <span class="tag ccf">CCF-A</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">J. Peng, A. Li, G. Jiang, <b>Huibing Wang*</b>,</span>
+                <span class="pub-title">Collaborative Federated Multi-View Clustering with Partial-View Imputation.</span>
+                <span class="pub-venue">ACM International Conference on Multimedia (ACM MM), 2026.</span> <span class="tag ccf">CCF-A</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">C. Yang, W. Chen, L. Jiang, et al., <b>Huibing Wang*</b>,</span>
+                <span class="pub-title">Balanced Dual-Anchor Multi-View Clustering via Time-Spanning Guidance.</span>
+                <span class="pub-venue">ACM International Conference on Multimedia (ACM MM), 2026.</span> <span class="tag ccf">CCF-A</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">H. Yang, J. Peng, <b>Huibing Wang*</b>,</span>
+                <span class="pub-title">Granular Semantic Cognition for Visible-Infrared Person Re-identification.</span>
+                <span class="pub-venue">European Conference on Computer Vision (ECCV), 2026.</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">W. Zhang, X. Zuo, J. Peng, <b>Huibing Wang</b>,</span>
+                <span class="pub-title">Stratified Consistency Learning for Text-to-Image Person Re-Identification.</span>
+                <span class="pub-venue">ACM Transactions on Multimedia Computing, Communications, and Applications (TOMM), 2026.</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">L. Shi, Y. Yang, Y. Liu, <b>Huibing Wang</b>, X. Fu, G. Jiang,</span>
+                <span class="pub-title">PKGD: Physics Knowledge-Guided Diffusion Model for Underwater Image Enhancement.</span>
+                <span class="pub-venue">IEEE Transactions on Geoscience and Remote Sensing (TGRS), 2026.</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors"><b>Huibing Wang</b>, G. Zhao, J. Peng, et al.,</span>
+                <span class="pub-title">Scale-Aware Domain Harmonization for Domain Adaptation Person Search.</span>
+                <span class="pub-venue">International Conference on Machine Learning (ICML), 2026.</span> <span class="tag ccf">CCF-A</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">Y. Huang, <b>Huibing Wang*</b>, J. Peng, et al.,</span>
+                <span class="pub-title">Discretely-Refined Multi-view Clustering via Aligned Anchor Learning.</span>
+                <span class="pub-venue">International Conference on Machine Learning (ICML), 2026.</span> <span class="tag ccf">CCF-A</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors"><b>Huibing Wang</b>, Y. Huang, Y. Chen, et al.,</span>
+                <span class="pub-title">Dual-Calibration Multi-View Clustering via Compact Anchor Learning.</span>
+                <span class="pub-venue">International Conference on Machine Learning (ICML), 2026.</span> <span class="tag ccf">CCF-A</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">J. Peng, J. Tan, Z. Tao, et al., <b>Huibing Wang*</b>,</span>
+                <span class="pub-title">Dynamic Magic: Unleashing Restricted Knowledge for Lifelong Person Re-Identification.</span>
+                <span class="pub-venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026.</span> <span class="tag ccf">CCF-A</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">Z. Mi, S. Jiang, Y. Li, G. Li, J. Zhang, <b>Huibing Wang*</b>, X. Fu,</span>
+                <span class="pub-title">Interaction-Driven Edge Crisping for Underwater Salient Object Detection.</span>
+                <span class="pub-venue">IEEE Transactions on Circuits and Systems for Video Technology (TCSVT), 2026.</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors"><b>Huibing Wang</b>, L. Cui, M. Yao, X. Fu,</span>
+                <span class="pub-title">Tensorized Fine-Grained Incomplete Multiview Clustering via Intrinsic Structure Recovery.</span>
+                <span class="pub-venue">IEEE Transactions on Systems, Man, and Cybernetics: Systems (TSMCS), 2026.</span> <span class="cites">(26+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">J. Peng, J. Liu, X. Zuo, et al., <b>Huibing Wang*</b>,</span>
+                <span class="pub-title">Bi-level Inter-modality Modulation for Unsupervised Visible-Infrared Person Re-Identification.</span>
+                <span class="pub-venue">IEEE Transactions on Information Forensics and Security (TIFS), 2026.</span> <span class="tag ccf">CCF-A</span> <span class="cites">(30+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">G. Jiang, H. Hou, Y. Liu, J. Peng, <b>Huibing Wang*</b>,</span>
+                <span class="pub-title">Reliable Feature Imputation with Cross-View Relation Transfer for Deep Incomplete Multi-View Classification.</span>
+                <span class="pub-venue">IEEE Transactions on Circuits and Systems for Video Technology (TCSVT), 2026.</span> <span class="cites">(9+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">W. Liu, J. Zhu, D. Liu, Y. Zhang, <b>Huibing Wang*</b>,</span>
+                <span class="pub-title">Dynamic Fusion Network Driven Private-Consensus Learning for Multiview Clustering.</span>
+                <span class="pub-venue">IEEE Transactions on Computational Social Systems (TCSS), 2026.</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">Z. Tao, J. Peng, <b>Huibing Wang</b>,</span>
+                <span class="pub-title">Transferable Adversarial Attack on Person Re-identification via Direction-Aware Attack.</span>
+                <span class="pub-venue">IEEE Transactions on Multimedia (TMM), 2026.</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">L. Qi, <b>Huibing Wang*</b>, J. Peng, et al.,</span>
+                <span class="pub-title">Localization-Anchored Instance Discrimination for Domain Adaptive Person Search.</span>
+                <span class="pub-venue">AAAI Conference on Artificial Intelligence (AAAI), 2026.</span> <span class="tag ccf">CCF-A</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">L. Qi, <b>Huibing Wang*</b>, J. Peng, et al.,</span>
+                <span class="pub-title">Instance-Guided Scene Adaptation for Unsupervised Person Search.</span>
+                <span class="pub-venue">AAAI Conference on Artificial Intelligence (AAAI), 2026.</span> <span class="tag ccf">CCF-A</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">Z. Tao, J. Peng, <b>Huibing Wang</b>,</span>
+                <span class="pub-title">Prompting Adversarial Transferability via Path Flatness Attack.</span>
+                <span class="pub-venue">AAAI Conference on Artificial Intelligence (AAAI), 2026.</span> <span class="tag ccf">CCF-A</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">M. Yao, Z. Jiang, X. Fu, <b>Huibing Wang</b>,</span>
+                <span class="pub-title">Conditional Prompt Learning via Degradation Perception for Underwater Image Enhancement.</span>
+                <span class="pub-venue">AAAI Conference on Artificial Intelligence (AAAI), 2026.</span> <span class="tag ccf">CCF-A</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">J. Zhang, X. Yang, H. Tang, et al., <b>Huibing Wang*</b>, X. Fu,</span>
+                <span class="pub-title">Efficient Vision Transformer with Token Sparsification for Event-based Object Tracking.</span>
+                <span class="pub-venue">International Journal of Computer Vision (IJCV), 2026.</span> <span class="tag ccf">CCF-A</span> <span class="cites">(8+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">J. Peng, C. Wang, J. Tan, <b>Huibing Wang</b>, X. Fu,</span>
+                <span class="pub-title">Bridging the Gap: Learning Adaptive Knowledge Transition for Lifelong Person Re-identification.</span>
+                <span class="pub-venue">Pattern Recognition, 2025.</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">Z. Sun, J. Peng, M. Li, <b>Huibing Wang*</b>,</span>
+                <span class="pub-title">Hierarchical Sequential Context Modeling for High-Fidelity Image Inpainting.</span>
+                <span class="pub-venue">IEEE Transactions on Circuits and Systems for Video Technology (TCSVT), 2025.</span> <span class="cites">(34+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">J. Tan, J. Peng, S. Zhang, Z. Wang, <b>Huibing Wang*</b>,</span>
+                <span class="pub-title">Unsupervised Lifelong Person Re-identification via Affinity Harmonization.</span>
+                <span class="pub-venue">ACM Transactions on Multimedia Computing, Communications, and Applications (TOMM), 2025.</span> <span class="cites">(47+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">Y. Jiang, <b>Huibing Wang*</b>, et al.,</span>
+                <span class="pub-title">Spatiotemporal Consensus with Scene Prior for Unsupervised Domain Adaptive Person Search.</span>
+                <span class="pub-venue">Advances in Neural Information Processing Systems (NeurIPS), 2025.</span> <span class="tag ccf">CCF-A</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">J. Peng, Z. Tao, <b>Huibing Wang*</b>, et al.,</span>
+                <span class="pub-title">Boosting Adversarial Transferability via Residual Perturbation Attack.</span>
+                <span class="pub-venue">IEEE/CVF International Conference on Computer Vision (ICCV), 2025.</span> <span class="tag ccf">CCF-A</span> <span class="cites">(14+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">G. Ju, J. Zhang, Y. Li, et al., <b>Huibing Wang</b>, X. Fu,</span>
+                <span class="pub-title">A Lightweight Polarization-Guided Plug-in for Underwater Image Enhancement.</span>
+                <span class="pub-venue">IEEE Transactions on Circuits and Systems for Video Technology (TCSVT), 2025.</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">Z. Wan, J. Zhang, Z. Mi, et al., <b>Huibing Wang</b>,</span>
+                <span class="pub-title">Eye-based Emotion Recognition via Event-Driven Sparse Transformers.</span>
+                <span class="pub-venue">ACM International Conference on Multimedia (ACM MM), 2025.</span> <span class="tag ccf">CCF-A</span> <span class="cites">(5+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">L. Cui, <b>Huibing Wang*</b>, Y. Chen, et al.,</span>
+                <span class="pub-title">Dual-Constraint Multi-view Fuzzy Clustering with Scalable Anchor Graph Learning.</span>
+                <span class="pub-venue">ACM International Conference on Multimedia (ACM MM), 2025.</span> <span class="tag ccf">CCF-A</span> <span class="cites">(6+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">Y. Chen, <b>Huibing Wang*</b>, M. Yao, et al.,</span>
+                <span class="pub-title">Scalable Multi-view Clustering based on Tight Anchor Distribution.</span>
+                <span class="pub-venue">ACM International Conference on Multimedia (ACM MM), 2025.</span> <span class="tag ccf">CCF-A</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">J. Peng, T. Cheng, G. Jiang, <b>Huibing Wang*</b>,</span>
+                <span class="pub-title">Prior-oriented Anchor Learning with Coalesced Semantics for Multi-View Clustering.</span>
+                <span class="pub-venue">ACM International Conference on Multimedia (ACM MM), 2025.</span> <span class="tag ccf">CCF-A</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors"><b>Huibing Wang</b>, Y. Chen, M. Yao, X. Fu,</span>
+                <span class="pub-title">Tensorized Parameter-free Multi-view Spectral Clustering based on Fair Representation Learning.</span>
+                <span class="pub-venue">IEEE Transactions on Multimedia (TMM), 2025.</span> <span class="cites">(33+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">Q. Liu, <b>Huibing Wang*</b>, J. Peng, et al.,</span>
+                <span class="pub-title">Consensus-Guided Incomplete Multi-view Clustering via Cross-view Affinities Learning.</span>
+                <span class="pub-venue">International Joint Conference on Artificial Intelligence (IJCAI), 2025.</span> <span class="tag ccf">CCF-A</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">J. Peng, M. Li, <b>Huibing Wang*</b>,</span>
+                <span class="pub-title">Stabilizing Holistic Semantics in Diffusion Bridge for Image Inpainting.</span>
+                <span class="pub-venue">International Joint Conference on Artificial Intelligence (IJCAI), 2025.</span> <span class="tag ccf">CCF-A</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">X. Zuo, J. Peng, T. Cheng, <b>Huibing Wang*</b>,</span>
+                <span class="pub-title">Modality-Perceptive Harmonization Network for Visible-Infrared Person Re-identification.</span>
+                <span class="pub-venue">Information Fusion, 2025.</span> <span class="cites">(16+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">Y. Chen, J. Zhang, Y. Li, <b>Huibing Wang</b>, X. Fu,</span>
+                <span class="pub-title">Fusion-based Channel-wise Isotropic Convergent Real-time Underwater Image Enhancement.</span>
+                <span class="pub-venue">IEEE Transactions on Circuits and Systems for Video Technology (TCSVT), 2025.</span> <span class="cites">(16+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors"><b>Huibing Wang</b>, Y. Chen, M. Yao, et al.,</span>
+                <span class="pub-title">Tensor Completion Framework by Graph Refinement for Incomplete Multi-view Clustering.</span>
+                <span class="pub-venue">IEEE Transactions on Multimedia (TMM), 2025.</span> <span class="cites">(89+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">B. Cai, <b>Huibing Wang*</b>, M. Yao, X. Fu,</span>
+                <span class="pub-title">Focus More on What? Guiding Multi-Task Training for End-to-End Person Search.</span>
+                <span class="pub-venue">IEEE Transactions on Circuits and Systems for Video Technology (TCSVT), 2025.</span> <span class="cites">(97+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">J. Peng, M. Li, B. Wang, <b>Huibing Wang*</b>,</span>
+                <span class="pub-title">Omni Contextual Aggregation Networks for High-Fidelity Image Inpainting.</span>
+                <span class="pub-venue">IEEE Transactions on Circuits and Systems for Video Technology (TCSVT), 2025.</span> <span class="cites">(19+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">Y. Chen, <b>Huibing Wang*</b>, J. Peng, Y. Wang,</span>
+                <span class="pub-title">Anchor Learning with Potential Cluster Constraints for Multi-view Clustering.</span>
+                <span class="pub-venue">AAAI Conference on Artificial Intelligence (AAAI), 2025.</span> <span class="tag ccf">CCF-A</span> <span class="cites">(65+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">L. Qi, <b>Huibing Wang*</b>, J. Peng, et al.,</span>
+                <span class="pub-title">Unsupervised Domain Adaptive Person Search via Dual Self-Calibration.</span>
+                <span class="pub-venue">AAAI Conference on Artificial Intelligence (AAAI), 2025.</span> <span class="tag ccf">CCF-A</span> <span class="cites">(8+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">J. Peng, S. Zhang, <b>Huibing Wang*</b>,</span>
+                <span class="pub-title">CDE-Learning: Camera Deviation Elimination Learning for Unsupervised Person Re-identification.</span>
+                <span class="pub-venue">AAAI Conference on Artificial Intelligence (AAAI), 2025.</span> <span class="tag ccf">CCF-A</span> <span class="cites">(19+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">X. Shen, G. Yuan, <b>Huibing Wang*</b>, X. Fu,</span>
+                <span class="pub-title">Unsupervised Clustering Optimization-Based Efficient Attention in YOLO for Underwater Object Detection.</span>
+                <span class="pub-venue">Artificial Intelligence Review, 2025.</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">M. Yao, <b>Huibing Wang*</b>, Y. Chen, X. Fu,</span>
+                <span class="pub-title">Between/Within View Information Completing for Tensorial Incomplete Multi-view Clustering.</span>
+                <span class="pub-venue">IEEE Transactions on Multimedia (TMM), 2024.</span> <span class="cites">(139+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">Y. Jiang, <b>Huibing Wang*</b>, J. Peng, et al.,</span>
+                <span class="pub-title">Scene-Adaptive Person Search via Bilateral Modulations.</span>
+                <span class="pub-venue">International Joint Conference on Artificial Intelligence (IJCAI), 2024.</span> <span class="tag ccf">CCF-A</span> <span class="cites">(25+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">T. Cui, <b>Huibing Wang*</b>, J. Peng, et al.,</span>
+                <span class="pub-title">Fast One-Stage Unsupervised Domain Adaptive Person Search.</span>
+                <span class="pub-venue">International Joint Conference on Artificial Intelligence (IJCAI), 2024.</span> <span class="tag ccf">CCF-A</span> <span class="cites">(16+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors"><b>Huibing Wang</b>, M. Yao, Y. Chen, et al.,</span>
+                <span class="pub-title">Manifold-based Incomplete Multi-view Clustering via Bi-Consistency Guidance.</span>
+                <span class="pub-venue">IEEE Transactions on Multimedia (TMM), 2024.</span> <span class="tag hot">ESI Hot Paper</span> <span class="cites">(158+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">J. Peng, J. Yu, C. Wang, <b>Huibing Wang</b>, X. Fu,</span>
+                <span class="pub-title">Adapt Only Once: Fast Unsupervised Person Re-identification via Relevance-aware Guidance.</span>
+                <span class="pub-venue">Pattern Recognition, 2024.</span> <span class="cites">(26+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">Y. Jiang, T. Yan, M. Yao, <b>Huibing Wang*</b>, W. Liu,</span>
+                <span class="pub-title">Cascade Transformers with Dynamic Attention for Video Question Answering.</span>
+                <span class="pub-venue">Computer Vision and Image Understanding (CVIU), 2024.</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">J. Peng, P. Song, H. Li, <b>Huibing Wang*</b>,</span>
+                <span class="pub-title">ReFID: Reciprocal Frequency-aware Generalizable Person Re-identification via Decomposition and Filtering.</span>
+                <span class="pub-venue">ACM Transactions on Multimedia Computing, Communications, and Applications (TOMM), 2024.</span> <span class="cites">(14+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">H. Deng, X. Meng, <b>Huibing Wang</b>, L. Feng,</span>
+                <span class="pub-title">OPM2L: An Optimal Instance Partition-based Multi-metric Learning Method for Heterogeneous Dataset Classification.</span>
+                <span class="pub-venue">Information Sciences, 2023.</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors"><b>Huibing Wang</b>, T. Cui, M. Yao, H. Pang, Y. Du,</span>
+                <span class="pub-title">Domain Adaptive Person Search via GAN-based Scene Synthesis for Cross-scene Videos.</span>
+                <span class="pub-venue">Image and Vision Computing, 2023.</span> <span class="cites">(11+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors"><b>Huibing Wang</b>, M. Yao, G. Jiang, et al.,</span>
+                <span class="pub-title">Graph-Collaborated Auto-Encoder Hashing for Multi-view Binary Clustering.</span>
+                <span class="pub-venue">IEEE Transactions on Neural Networks and Learning Systems (TNNLS), 2023.</span> <span class="cites">(124+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">J. Peng, G. Jiang, <b>Huibing Wang*</b>,</span>
+                <span class="pub-title">Adaptive Memorization With Group Labels for Unsupervised Person Re-Identification.</span>
+                <span class="pub-venue">IEEE Transactions on Circuits and Systems for Video Technology (TCSVT), 2023.</span> <span class="cites">(93+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors"><b>Huibing Wang</b>, G. Jiang, J. Peng, et al.,</span>
+                <span class="pub-title">Towards Adaptive Consensus Graph: Multi-view Clustering via Graph Collaboration.</span>
+                <span class="pub-venue">IEEE Transactions on Multimedia (TMM), 2022.</span> <span class="cites">(126+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">X. Meng, L. Feng, C. Guo, <b>Huibing Wang*</b>, S. Wu,</span>
+                <span class="pub-title">A Unified Framework Based on Graph Consensus Term for Multiview Learning.</span>
+                <span class="pub-venue">IEEE Transactions on Neural Networks and Learning Systems (TNNLS), 2022.</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">Y. Wang, J. Peng, <b>Huibing Wang</b>, M. Wang,</span>
+                <span class="pub-title">Progressive Learning with Multi-scale Attention Network for Cross-domain Vehicle Re-identification.</span>
+                <span class="pub-venue">Science China Information Sciences, 2022.</span> <span class="tag ccf">CCF-A</span> <span class="cites">(150+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">G. Jiang, J. Peng, <b>Huibing Wang*</b>, et al.,</span>
+                <span class="pub-title">Tensorial Multi-view Clustering via Low-rank Constrained High-order Graph Learning.</span>
+                <span class="pub-venue">IEEE Transactions on Circuits and Systems for Video Technology (TCSVT), 2022.</span> <span class="cites">(129+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">R. Deng, S. Liu, J. Wang, <b>Huibing Wang</b>, et al.,</span>
+                <span class="pub-title">Learning to Decode Contextual Information for Efficient Contour Detection.</span>
+                <span class="pub-venue">ACM International Conference on Multimedia (ACM MM), 2021.</span> <span class="tag ccf">CCF-A</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors"><b>Huibing Wang</b>, Y. Wang, Z. Zhang, et al.,</span>
+                <span class="pub-title">Kernelized Multiview Subspace Analysis by Self-weighted Learning.</span>
+                <span class="pub-venue">IEEE Transactions on Multimedia (TMM), 2020.</span> <span class="cites">(131+ citations)</span>
+            </li>
+
+
+
+            <li>
+                <span class="pub-authors">J. Peng, Y. Wang, <b>Huibing Wang</b>, et al.,</span>
+                <span class="pub-title">Unsupervised Vehicle Re-identification with Progressive Adaptation.</span>
+                <span class="pub-venue">International Joint Conference on Artificial Intelligence (IJCAI), 2020.</span> <span class="tag ccf">CCF-A</span>
+            </li>
+        </ol>
+    </div>
+
+    <!-- ============ service ============ -->
+    <div class="section" id="service">
+        <div class="section-title">Editorial &amp; Review Service</div>
+        <div class="sub-title">Editorial Boards</div>
+        <p style="font-size:14.5px;">
+            IEEE Transactions on Vehicular Technology (TVT), Pattern Recognition,
+            Discover Artificial Intelligence, InUS Transactions.
+        </p>
+        <div class="sub-title" style="margin-top:16px;">Journal Reviewer for</div>
+        <p style="font-size:14.5px;">
+            IEEE TPAMI, International Journal of Computer Vision (IJCV), IEEE TIP, IEEE TMM,
+            IEEE TIFS, IEEE TCSVT, IEEE TNNLS, IEEE TSMC: Systems, IEEE TVT, IEEE TITS.
+        </p>
+        <div class="sub-title" style="margin-top:16px;">Conference Program Committees</div>
+        <p style="font-size:14.5px;">
+            AAAI (Senior PC 2027, PC 2026), IJCAI, ICLR, ICML, NeurIPS, CVPR, ICCV, ECCV,
+            ACM MM, BMVC.
+        </p>
+    </div>
+
+    <footer>
+        &copy; 2026 Huibing Wang<span class="sep">·</span>Dalian Maritime University<span class="sep">·</span>Last updated: October 2026
+    </footer>
+
+</div>
+</div>
+
+<script>
+/* Download CV: fetch as blob and trigger a download, so clicking never
+   navigates to a PDF viewer page (the plain `download` attribute is not
+   honoured everywhere). Falls back to normal navigation if fetch fails. */
+document.getElementById("cv-link").addEventListener("click", function (e) {
+    e.preventDefault();
+    const href = this.href;
+    fetch(href).then(r => r.blob()).then(b => {
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(b);
+        a.download = "HuibingWang_CV.pdf";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+    }).catch(() => { window.location.href = href; });
+});
+</script>
+
+</body>
+</html>
